@@ -1,50 +1,137 @@
-# 🚀 DevAtlas
+# DevAtlas 🚀
 
-> A full-stack web application built with a modular frontend and backend architecture.
+DevAtlas is a full-stack developer analytics platform that provides detailed insights into a GitHub profile using real GitHub GraphQL data. The application analyzes repositories, programming languages, contributions, activity patterns, and community engagement to generate meaningful developer metrics and visualizations.
 
----
+## Features
 
-## 📌 Overview
+### Authentication
 
-DevAtlas is a web-based platform designed to demonstrate a scalable full-stack architecture.  
-It separates frontend and backend concerns to ensure maintainability, clarity, and performance.
+* User Registration
+* Secure Login with JWT Authentication
+* Password Hashing using bcrypt
 
-The project is structured for real-world development workflows and can be extended into production-level systems.
+### GitHub Analytics
 
----
+* GitHub Profile Analysis
+* Repository Statistics
+* Total Stars and Forks
+* Contribution Heatmap
+* Programming Language Distribution
+* Follower Insights
 
-## 🧱 Architecture
+### Developer Scoring System
 
----
+* Community Score
+* Activity Score
+* Quality Score
+* Profile Strength Rating
+* Developer Level Classification
 
-## ⚙️ Tech Stack
+  * Beginner
+  * Intermediate
+  * Advanced
+  * Expert
+  * Elite
+
+### Visualizations
+
+* Contribution Heatmap
+* Language Distribution Chart
+* Repository Overview Dashboard
+* Developer Score Dashboard
+
+## Tech Stack
 
 ### Frontend
-- (React / HTML / CSS / JS — update based on what you used)
+
+* React.js
+* Axios
+* Recharts
+* CSS
 
 ### Backend
-- Node.js
-- Express.js
 
-### Other Tools
-- npm (package management)
-- Git & GitHub (version control)
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* JWT Authentication
+* bcrypt.js
 
----
+### APIs
 
-## ✨ Features
+* GitHub GraphQL API
 
-- Modular frontend and backend separation
-- REST API-based backend structure
-- Scalable folder organization
-- Lightweight and extendable design
-- Clean development workflow using Git
+## Project Architecture
 
----
+project/
+├── backend/
+│ ├── server.js
+│ ├── models/
+│ └── routes/
+│
+├── frontend/
+│ ├── src/
+│ ├── components/
+│ └── pages/
+│
+└── README.md
 
-## 🚀 Getting Started
+## Installation
 
-### 1️⃣ Clone the repository
+### Clone Repository
+
+git clone https://github.com/Siri1646/DevAtlas.git
+
+cd DevAtlas
+
+### Backend Setup
+
+cd backend
+
+npm install
+
+Create a .env file:
+
+MONGO_URL=your_mongodb_connection_string
+
+JWT_SECRET=your_secret_key
+
+GITHUB_TOKEN=your_github_token
+
+Start backend:
+
+npm start
+
+### Frontend Setup
+
+cd frontend
+
+npm install
+
+npm start
+
+## Future Improvements
+
+* GitHub User Comparison
+* AI-powered Profile Recommendations
+* Repository Trend Analysis
+* Contribution Forecasting
+* Export Reports as PDF
+* Dark/Light Theme Toggle
+
+## Author
+
+M. Siri Chandana
+
+Civil Engineering Undergraduate
+
+Indian Institute of Technology Roorkee
+
+## License
+
+This project is developed for educational and portfolio purposes.
+tory
 
 ```bash
 git clone https://github.com/Siri1646/DevAtlas.git

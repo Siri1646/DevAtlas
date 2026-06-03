@@ -9,7 +9,7 @@ export default function Register() {
 
   const register = async () => {
     try {
-      await axios.post("http://localhost:5000/register", {
+      await axios.post("https://devatlas-pgqc.onrender.com/register", {
         email,
         password
       });

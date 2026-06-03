@@ -30,7 +30,7 @@ export default function Home() {
     const token = localStorage.getItem("token");
 
     const res = await axios.get(
-      `http://localhost:5000/github/${username}`,
+      `https://devatlas-pgqc.onrender.com/github/${username}`,
       { headers: { Authorization: token } }
     );
 

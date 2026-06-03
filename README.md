@@ -131,8 +131,3 @@ Indian Institute of Technology Roorkee
 ## License
 
 This project is developed for educational and portfolio purposes.
-tory
-
-```bash
-git clone https://github.com/Siri1646/DevAtlas.git
-cd DevAtlas

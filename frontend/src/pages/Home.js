@@ -144,7 +144,8 @@ export default function Home() {
       <Card
   title="Most Used Language"
   value={
-    Object.keys(data.languages)[0] || "N/A"
+    Object.entries(data.languages)
+      .sort((a, b) => b[1] - a[1])[0]?.[0] || "N/A"
   }
 />
     </div>

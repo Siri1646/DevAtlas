@@ -35,6 +35,13 @@ app.get("/test", (req, res) => {
     time: new Date().toISOString()
   });
 });
+app.get("/env-check", (req, res) => {
+  res.json({
+    mongo: !!process.env.MONGO_URL,
+    jwt: !!process.env.JWT_SECRET,
+    github: !!process.env.GITHUB_TOKEN
+  });
+});
 app.post("/register", async (req, res) => {
   try {
     console.log("REGISTER BODY:", req.body);

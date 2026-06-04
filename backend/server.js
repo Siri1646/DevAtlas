@@ -42,6 +42,21 @@ app.get("/env-check", (req, res) => {
     github: !!process.env.GITHUB_TOKEN
   });
 });
+app.get("/db-check", async (req, res) => {
+  try {
+    const count = await User.countDocuments();
+
+    res.json({
+      db: "connected",
+      users: count
+    });
+  } catch (err) {
+    res.status(500).json({
+      db: "failed",
+      error: err.message
+    });
+  }
+});
 app.post("/register", async (req, res) => {
   try {
     console.log("REGISTER BODY:", req.body);

@@ -29,7 +29,12 @@ const UserSchema = new mongoose.Schema({
 const User = mongoose.model("User", UserSchema);
 
 /* ---------------- AUTH ---------------- */
-
+app.get("/test", (req, res) => {
+  res.json({
+    msg: "Backend is updated",
+    time: new Date().toISOString()
+  });
+});
 app.post("/register", async (req, res) => {
   try {
     console.log("REGISTER BODY:", req.body);

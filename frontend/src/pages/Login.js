@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
+const API = "https://devatlas-pgqc.onrender.com";
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,23 +12,23 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
+    if (!email || !password) {
+      alert("Please enter email and password");
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const res = await axios.post("https://devatlas-pgqc.onrender.com/login", {
+      const res = await axios.post(`${API}/login`, {
         email,
         password,
       });
 
-      // store token
       localStorage.setItem("token", res.data.token);
-
-      // go to HOME (important)
       navigate("/home");
-
     } catch (err) {
-      console.log(err);
-      alert("Login failed. Check credentials or backend.");
+      alert(err.response?.data?.msg || "Login failed");
     } finally {
       setLoading(false);
     }
@@ -53,11 +55,7 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button
-          style={styles.button}
-          onClick={handleLogin}
-          disabled={loading}
-        >
+        <button style={styles.button} onClick={handleLogin} disabled={loading}>
           {loading ? "Logging in..." : "Login"}
         </button>
 
@@ -78,7 +76,6 @@ const styles = {
     background: "#0b0f1a",
     color: "white",
   },
-
   card: {
     width: 320,
     padding: 25,
@@ -88,24 +85,18 @@ const styles = {
     flexDirection: "column",
     gap: 10,
   },
-
-  title: {
-    margin: 0,
-  },
-
+  title: { margin: 0 },
   subtitle: {
     marginTop: -10,
     fontSize: 14,
     opacity: 0.7,
   },
-
   input: {
     padding: 10,
     borderRadius: 8,
     border: "none",
     outline: "none",
   },
-
   button: {
     padding: 10,
     borderRadius: 8,

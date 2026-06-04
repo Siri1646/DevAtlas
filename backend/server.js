@@ -270,10 +270,11 @@ console.log("TOTAL CONTRIBUTIONS:", totalContributions);
 });
 
   } catch (err) {
-  console.log("GITHUB ERROR:", err.response?.data || err.message);
+  console.log("REGISTER ERROR:", err.message);
 
   res.status(500).json({
-    msg: "GitHub API error"
+    msg: "Server error",
+    error: err.message
   });
 }
 });
